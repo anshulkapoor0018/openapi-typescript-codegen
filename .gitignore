@@ -8,7 +8,7 @@ junit.xml
 .idea
 .vscode
 *.iml
-# dist
+dist
 coverage
 test/generated
 test/e2e/generated

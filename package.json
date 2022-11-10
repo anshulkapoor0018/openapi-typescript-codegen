@@ -1,6 +1,5 @@
 {
     "name": "openapi-typescript-codegen",
-    "type": "module",
     "version": "0.23.0",
     "description": "Library that generates Typescript clients based on the OpenAPI specification.",
     "author": "Ferdi Koomen",
@@ -43,9 +42,9 @@
         "types/index.d.ts"
     ],
     "scripts": {
-        "prepare": "npm run build",
+        "prepack": "npm run build",
         "clean": "rimraf ./dist ./test/generated ./test/e2e/generated ./samples/generated ./coverage ./node_modules/.cache",
-        "build": "rollup --config rollup.config.js --environment NODE_ENV:development",
+        "build": "rollup --config --environment NODE_ENV:development",
         "build:watch": "rollup --config --environment NODE_ENV:development --watch",
         "release": "rollup --config --environment NODE_ENV:production",
         "validate": "tsc --project tsconfig.json --noEmit",
