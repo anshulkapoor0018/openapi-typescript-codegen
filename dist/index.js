@@ -5150,9 +5150,9 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(lookupProperty(data,"root"),"exportClient"),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.program(16, data, 0),"data":data,"loc":{"start":{"line":23,"column":0},"end":{"line":32,"column":7}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"angular",{"name":"equals","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":34,"column":0},"end":{"line":38,"column":11}}})) != null ? stack1 : "")
-    + "export default class "
-    + ((stack1 = alias3(alias2(depth0, "name", {"start":{"line":39,"column":24},"end":{"line":39,"column":28}} ), depth0)) != null ? stack1 : "")
-    + ((stack1 = alias3(alias2(lookupProperty(data,"root"), "postfix", {"start":{"line":39,"column":34},"end":{"line":39,"column":47}} ), depth0)) != null ? stack1 : "")
+    + "export class "
+    + ((stack1 = alias3(alias2(depth0, "name", {"start":{"line":39,"column":16},"end":{"line":39,"column":20}} ), depth0)) != null ? stack1 : "")
+    + ((stack1 = alias3(alias2(lookupProperty(data,"root"), "postfix", {"start":{"line":39,"column":26},"end":{"line":39,"column":39}} ), depth0)) != null ? stack1 : "")
     + " {\n	private token: string\n    private userId: string\n	constructor(token: string, userId: string) {\n        this.token = token\n        this.userId = userId\n    }\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(lookupProperty(data,"root"),"exportClient"),{"name":"if","hash":{},"fn":container.program(20, data, 0),"inverse":container.program(22, data, 0),"data":data,"loc":{"start":{"line":47,"column":1},"end":{"line":55,"column":8}}})) != null ? stack1 : "")
     + "\n"
