@@ -36,14 +36,14 @@ import { request as __request } from '../core/request';
   providedIn: 'root',
 })
 {{/equals}}
-export default class {{{name}}}{{{@root.postfix}}} ({token, userId}){
+export default class {{{name}}}{{{@root.postfix}}} {
 	private token: string
     private userId: string
-	constructor() {
+	constructor(token: string, userId: string) {
         this.token = token
         this.userId = userId
     }
-	
+
 	{{#if @root.exportClient}}
 
 	constructor(public readonly httpRequest: BaseHttpRequest) {}
