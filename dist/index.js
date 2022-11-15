@@ -5178,7 +5178,7 @@ var templateIndex = {"1":function(container,depth0,helpers,partials,data) {
 
   return "export { ApiError } from './core/ApiError';\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(lookupProperty(data,"root"),"exportClient"),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":9,"column":0},"end":{"line":11,"column":7}}})) != null ? stack1 : "")
-    + "export { CancelablePromise, CancelError } from './core/CancelablePromise';\nexport { OpenAPI } from './core/OpenAPI';\nexport { IBaseResult } from './core/IBaseResult';\nexport { IErrorResult } from './core/IErrorResult';\nexport { IParam } from './core/IParam';\nexport type { OpenAPIConfig } from './core/OpenAPI';\n";
+    + "export { OpenAPI } from './core/OpenAPI';\nexport { IBaseResult } from './core/IBaseResult';\nexport { IErrorResult } from './core/IErrorResult';\nexport { IParam } from './core/IParam';\nexport type { OpenAPIConfig } from './core/OpenAPI';\n";
 },"4":function(container,depth0,helpers,partials,data) {
     return "export { BaseHttpRequest } from './core/BaseHttpRequest';\n";
 },"6":function(container,depth0,helpers,partials,data) {
