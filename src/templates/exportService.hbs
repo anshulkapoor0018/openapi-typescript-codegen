@@ -84,7 +84,7 @@ export class {{{name}}}{{{@root.postfix}}} {
 	public async {{{name}}}({{>parameters}}): Promise<IBaseResult<{{>result}} | IErrorResult>> {
 		const result = await __request({
 			method: '{{{method}}}',
-			path: `{{#replace "{userId}" "${this.userId}"}}{{{path}}}{{/replace}}`,
+			path: `{{#replace "userId" "this.userId"}}{{#replace "{" "${"}}{{{path}}}{{/replace}}{{/replace}}`,
 			token: this.token,
 			{{#if parametersQuery}}
 			query: {

@@ -20,9 +20,10 @@ export const registerHandlebarHelpers = (root: {
         return options.inverse(this);
     });
 
-    Handlebars.registerHelper('replace', function(this: any, find, replace, options) {
-        var string = options.fn(this);
-        return string.replace(find, replace);
+    Handlebars.registerHelper('replace', function(this: any, find: string, replace:string, options) {
+        var string = options.fn(this) as string;
+        let re = new RegExp(find,'g');
+        return string.replace(re, replace);
     });
 
     Handlebars.registerHelper(
