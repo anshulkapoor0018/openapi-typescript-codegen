@@ -27,7 +27,7 @@ const handlebarsPlugin = () => ({
                 strict: true,
                 noEscape: true,
                 preventIndent: true,
-                knownHelpersOnly: true,
+                knownHelpersOnly: false,
                 knownHelpers: {
                     ifdef: true,
                     equals: true,
