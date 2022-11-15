@@ -1,0 +1,15 @@
+{{>header}}
+
+import { IParam } from "./IParam";
+
+/**
+ * @typedef {Object} IErrorResult
+ * @property {string} code - URL of the API endpoint
+ * @property {string} message - Error Description
+ * @property {IParam[]} status - Error Params
+ */
+export interface IErrorResult {
+    code: number,
+    message: string,
+    params: IParam[]
+}

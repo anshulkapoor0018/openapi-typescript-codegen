@@ -18,7 +18,7 @@ import type { {{{this}}} } from '../models/{{{this}}}';
 
 {{/if}}
 {{#notEquals @root.httpClient 'angular'}}
-import type { CancelablePromise } from '../core/CancelablePromise';
+{{!-- import type { CancelablePromise } from '../core/CancelablePromise'; --}}
 {{/notEquals}}
 {{#if @root.exportClient}}
 {{#equals @root.httpClient 'angular'}}
@@ -28,6 +28,9 @@ import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 {{/equals}}
 {{else}}
 import { OpenAPI } from '../core/OpenAPI';
+import { IBaseResult } from '../core/IBaseResult';
+import { IErrorResult } from '../core/IErrorResult';
+
 import { request as __request } from '../core/request';
 {{/if}}
 
@@ -90,7 +93,7 @@ export class {{{name}}}{{{@root.postfix}}} {
 	public {{{name}}}({{>parameters}}): Observable<{{>result}}> {
 		return __request(OpenAPI, this.http, {
 	{{else}}
-	public static {{{name}}}({{>parameters}}): CancelablePromise<{{>result}}> {
+	public async {{{name}}}({{>parameters}}): Promise<IBaseResult<{{>result}} | IErrorResult>> {
 		return __request(OpenAPI, {
 	{{/equals}}
 	{{/if}}
