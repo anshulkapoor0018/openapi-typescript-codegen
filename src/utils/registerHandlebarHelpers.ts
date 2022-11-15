@@ -26,6 +26,17 @@ export const registerHandlebarHelpers = (root: {
         return string.replace(re, replace);
     });
 
+    Handlebars.registerHelper('log', function(this: any, content) {
+        console.log(content.fn(this));
+        return '';
+    });
+
+    Handlebars.registerHelper('deleteUserId', function(this: any, options) {
+        var string = options.fn(this) as string;
+        let re = new RegExp("userId: string,",'g');
+        return string.replace(re, "");
+    });
+
     Handlebars.registerHelper(
         'equals',
         function (this: any, a: string, b: string, options: Handlebars.HelperOptions): string {
