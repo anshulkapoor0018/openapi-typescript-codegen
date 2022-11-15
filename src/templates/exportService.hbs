@@ -13,7 +13,7 @@ import type { Observable } from 'rxjs';
 {{/equals}}
 {{#if imports}}
 {{#each imports}}
-import type { {{{this}}} } from '../models/{{{this}}}';
+import type { {{{this}}} } from 'sdk/src/api/models/Interfaces/{{{this}}}';
 {{/each}}
 
 {{/if}}
@@ -27,10 +27,10 @@ import { BaseHttpRequest } from '../core/BaseHttpRequest';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 {{/equals}}
 {{else}}
-import { IErrorResult } from 'sdk/src/api-old/models/iRepository/IResponses/IResults.ts/IErrorResult';
-import { IBaseResult } from 'sdk/src/api-old/models/iRepository/IResponses/IResults.ts/IBaseResult';
-import { catchError } from 'sdk/src/api-old/core/ApiError';
-import { request as __request } from 'sdk/src/api-old/core/request';
+import { IErrorResult } from 'sdk/src/api/models/IResult/IErrorResult';
+import { IBaseResult } from 'sdk/src/api/models/IResult/IBaseResult';
+import { catchError } from 'sdk/src/api/core/ApiError';
+import { request as __request } from 'sdk/src/api/core/request';
 
 {{/if}}
 

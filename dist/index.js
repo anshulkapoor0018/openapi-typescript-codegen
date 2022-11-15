@@ -4782,7 +4782,7 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
 
   return "import type { "
     + ((stack1 = alias1(depth0, depth0)) != null ? stack1 : "")
-    + " } from '../models/"
+    + " } from 'sdk/src/api/models/Interfaces/"
     + ((stack1 = alias1(depth0, depth0)) != null ? stack1 : "")
     + "';\n";
 },"9":function(container,depth0,helpers,partials,data) {
@@ -4801,7 +4801,7 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
 },"14":function(container,depth0,helpers,partials,data) {
     return "import type { BaseHttpRequest } from '../core/BaseHttpRequest';\n";
 },"16":function(container,depth0,helpers,partials,data) {
-    return "import { IErrorResult } from 'sdk/src/api-old/models/iRepository/IResponses/IResults.ts/IErrorResult';\nimport { IBaseResult } from 'sdk/src/api-old/models/iRepository/IResponses/IResults.ts/IBaseResult';\nimport { catchError } from 'sdk/src/api-old/core/ApiError';\nimport { request as __request } from 'sdk/src/api-old/core/request';\n\n";
+    return "import { IErrorResult } from 'sdk/src/api/models/IResult/IErrorResult';\nimport { IBaseResult } from 'sdk/src/api/models/IResult/IBaseResult';\nimport { catchError } from 'sdk/src/api/core/ApiError';\nimport { request as __request } from 'sdk/src/api/core/request';\n\n";
 },"18":function(container,depth0,helpers,partials,data) {
     return "@Injectable({\n	providedIn: 'root',\n})\n";
 },"20":function(container,depth0,helpers,partials,data) {
@@ -5089,8 +5089,8 @@ var templateIndex = {"1":function(container,depth0,helpers,partials,data) {
   return "export type { "
     + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":24,"column":17},"end":{"line":24,"column":21}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":24,"column":14},"end":{"line":24,"column":24}}}) : helper))) != null ? stack1 : "")
     + ((stack1 = lookupProperty(helpers,"if").call(alias2,lookupProperty(lookupProperty(data,"root"),"postfixModels"),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":24,"column":24},"end":{"line":24,"column":97}}})) != null ? stack1 : "")
-    + " } from './models/"
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":24,"column":118},"end":{"line":24,"column":122}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":24,"column":115},"end":{"line":24,"column":125}}}) : helper))) != null ? stack1 : "")
+    + " } from 'sdk/src/api/models/Interfaces/"
+    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":24,"column":139},"end":{"line":24,"column":143}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":24,"column":136},"end":{"line":24,"column":146}}}) : helper))) != null ? stack1 : "")
     + "';\n";
 },"10":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.strict, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -5123,8 +5123,8 @@ var templateIndex = {"1":function(container,depth0,helpers,partials,data) {
   return "export { "
     + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":26,"column":12},"end":{"line":26,"column":16}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":26,"column":9},"end":{"line":26,"column":19}}}) : helper))) != null ? stack1 : "")
     + ((stack1 = lookupProperty(helpers,"if").call(alias2,lookupProperty(lookupProperty(data,"root"),"postfixModels"),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":26,"column":19},"end":{"line":26,"column":92}}})) != null ? stack1 : "")
-    + " } from './models/"
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":26,"column":113},"end":{"line":26,"column":117}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":26,"column":110},"end":{"line":26,"column":120}}}) : helper))) != null ? stack1 : "")
+    + " } from 'sdk/src/api/models/Interfaces/"
+    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":26,"column":134},"end":{"line":26,"column":138}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":26,"column":131},"end":{"line":26,"column":141}}}) : helper))) != null ? stack1 : "")
     + "';\n";
 },"15":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -5197,9 +5197,9 @@ var templateIndex = {"1":function(container,depth0,helpers,partials,data) {
   return "export { "
     + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":47,"column":12},"end":{"line":47,"column":16}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":47,"column":9},"end":{"line":47,"column":19}}}) : helper))) != null ? stack1 : "")
     + ((stack1 = alias4(alias1(lookupProperty(data,"root"), "postfixServices", {"start":{"line":47,"column":22},"end":{"line":47,"column":43}} ), depth0)) != null ? stack1 : "")
-    + " } from './services/"
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":47,"column":69},"end":{"line":47,"column":73}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":47,"column":66},"end":{"line":47,"column":76}}}) : helper))) != null ? stack1 : "")
-    + ((stack1 = alias4(alias1(lookupProperty(data,"root"), "postfixServices", {"start":{"line":47,"column":79},"end":{"line":47,"column":100}} ), depth0)) != null ? stack1 : "")
+    + " } from 'sdk/src/api/services/Gluon_services/"
+    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":47,"column":94},"end":{"line":47,"column":98}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":47,"column":91},"end":{"line":47,"column":101}}}) : helper))) != null ? stack1 : "")
+    + ((stack1 = alias4(alias1(lookupProperty(data,"root"), "postfixServices", {"start":{"line":47,"column":104},"end":{"line":47,"column":125}} ), depth0)) != null ? stack1 : "")
     + "';\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -7411,9 +7411,9 @@ const writeClientServices = async (services, templates, outputPath, httpClient, 
 const writeClient = async (client, templates, output, httpClient, useOptions, useUnionTypes, exportCore, exportServices, exportModels, exportSchemas, indent, postfixServices, postfixModels, clientName, request) => {
     const outputPath = path.resolve(process.cwd(), output);
     const outputPathCore = path.resolve(outputPath, 'core');
-    const outputPathModels = path.resolve(outputPath, 'models');
+    const outputPathModels = path.resolve(outputPath, 'models/Interfaces');
     const outputPathSchemas = path.resolve(outputPath, 'schemas');
-    const outputPathServices = path.resolve(outputPath, 'services');
+    const outputPathServices = path.resolve(outputPath, 'services/Gluon_services');
     if (!isSubDirectory(process.cwd(), output)) {
         throw new Error(`Output folder is not a subdirectory of the current working directory`);
     }

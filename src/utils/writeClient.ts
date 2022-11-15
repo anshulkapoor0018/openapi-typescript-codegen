@@ -52,9 +52,9 @@ export const writeClient = async (
 ): Promise<void> => {
     const outputPath = resolve(process.cwd(), output);
     const outputPathCore = resolve(outputPath, 'core');
-    const outputPathModels = resolve(outputPath, 'models');
+    const outputPathModels = resolve(outputPath, 'models/Interfaces');
     const outputPathSchemas = resolve(outputPath, 'schemas');
-    const outputPathServices = resolve(outputPath, 'services');
+    const outputPathServices = resolve(outputPath, 'services/Gluon_services');
 
     if (!isSubDirectory(process.cwd(), output)) {
         throw new Error(`Output folder is not a subdirectory of the current working directory`);

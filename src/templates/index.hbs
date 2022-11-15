@@ -21,13 +21,13 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 
 {{#each models}}
 {{#if @root.useUnionTypes}}
-export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}';
+export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
 {{else if enum}}
-export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}';
+export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
 {{else if enums}}
-export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}';
+export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
 {{else}}
-export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}';
+export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
 {{/if}}
 {{/each}}
 {{/if}}
@@ -44,7 +44,7 @@ export { ${{{name}}} } from './schemas/${{{name}}}';
 {{#if services}}
 
 {{#each services}}
-export { {{{name}}}{{{@root.postfixServices}}} } from './services/{{{name}}}{{{@root.postfixServices}}}';
+export { {{{name}}}{{{@root.postfixServices}}} } from 'sdk/src/api/services/Gluon_services/{{{name}}}{{{@root.postfixServices}}}';
 {{/each}}
 {{/if}}
 {{/if}}
