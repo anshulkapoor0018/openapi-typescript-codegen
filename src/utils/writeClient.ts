@@ -52,7 +52,7 @@ export const writeClient = async (
 ): Promise<void> => {
     const outputPath = resolve(process.cwd(), output);
     const outputPathCore = resolve(outputPath, 'core');
-    const outputPathModels = resolve(outputPath, 'models/Interfaces');
+    const outputPathModels = resolve(outputPath, 'models/Interfaces/GluonInterfaces');
     const outputPathSchemas = resolve(outputPath, 'schemas');
     const outputPathServices = resolve(outputPath, 'services/Gluon_services');
 

@@ -21,13 +21,13 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 
 {{#each models}}
 {{#if @root.useUnionTypes}}
-export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
+export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/GluonInterfaces/{{{name}}}';
 {{else if enum}}
-export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
+export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/GluonInterfaces/{{{name}}}';
 {{else if enums}}
-export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
+export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/GluonInterfaces/{{{name}}}';
 {{else}}
-export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/{{{name}}}';
+export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from 'sdk/src/api/models/Interfaces/GluonInterfaces/{{{name}}}';
 {{/if}}
 {{/each}}
 {{/if}}

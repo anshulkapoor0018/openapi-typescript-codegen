@@ -31,6 +31,14 @@ export const registerHandlebarHelpers = (root: {
         return '';
     });
 
+    Handlebars.registerHelper('if_eq', function(this: any, a, options) {
+        var string = a as string;
+        if(string.includes("Request"))
+            return options.fn(this);
+        else
+            return options.inverse(this);
+    });
+
     Handlebars.registerHelper('deleteUserId', function(this: any, options) {
         var string = options.fn(this) as string;
         let re = new RegExp("userId: string,",'g');

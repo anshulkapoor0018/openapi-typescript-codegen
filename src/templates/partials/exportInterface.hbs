@@ -8,6 +8,23 @@
 {{/if}}
  */
 {{/ifdef}}
+{{#if_eq name }}
+export interface {{{name}}} {
+	{{#each properties}}
+	{{#ifdef description deprecated}}
+	/**
+	{{#if description}}
+	 * {{{escapeComment description}}}
+	{{/if}}
+	{{#if deprecated}}
+	 * @deprecated
+	{{/if}}
+	 */
+	{{/ifdef}}
+	{{{name}}}{{>isRequired}}: {{>type parent=../name}};
+	{{/each}}
+};
+{{else}}
 export interface {{{name}}} {
 	{{#each properties}}
 	{{#ifdef description deprecated}}
@@ -23,6 +40,7 @@ export interface {{{name}}} {
 	readonly {{{name}}}{{>isRequired}}: {{>type parent=../name}};
 	{{/each}}
 };
+{{/if_eq}}
 {{#if enums}}
 {{#unless @root.useUnionTypes}}
 
