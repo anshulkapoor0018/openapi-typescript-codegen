@@ -31,6 +31,7 @@ import { IErrorResult } from 'sdk/src/api/models/IResult/IErrorResult';
 import { IBaseResult } from 'sdk/src/api/models/IResult/IBaseResult';
 import { catchError } from 'sdk/src/api/core/ApiError';
 import { request as __request } from 'sdk/src/api/core/request';
+import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
 
 {{/if}}
 
@@ -40,12 +41,10 @@ import { request as __request } from 'sdk/src/api/core/request';
 })
 {{/equals}}
 export class {{{name}}}{{{@root.postfix}}} {
-	private token: string
-    private userId: string
-	constructor(token: string, userId: string) {
-        this.token = token
-        this.userId = userId
-    }
+	private userId: string;
+	constructor() {
+		this.userId = AuthHandler.userId;
+	}
 
 	{{#if @root.exportClient}}
 
@@ -85,7 +84,6 @@ export class {{{name}}}{{{@root.postfix}}} {
 		const result = await __request({
 			method: '{{{method}}}',
 			path: `{{#replace "userId" "this.userId"}}{{#replace "{" "${"}}{{{path}}}{{/replace}}{{/replace}}`,
-			token: this.token,
 			{{#if parametersQuery}}
 			query: {
 				{{#each parametersQuery}}
