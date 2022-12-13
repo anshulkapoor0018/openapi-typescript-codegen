@@ -80,7 +80,7 @@ export class {{{name}}}{{{@root.postfix}}} {
 	 * @throws ApiError
 	 */
 
-	public async {{{name}}}({{#deleteUserId}} {{>parameters}} {{/deleteUserId}}): Promise<IBaseResult<{{>result}} | IErrorResult>> {
+	public async {{{name}}}({{#deleteUserId}} {{>parameters}} {{/deleteUserId}}): Promise<BaseResult<{{>result}} | ErrorResult>> {
 		const result = await __request({
 			method: '{{{method}}}',
 			path: `{{#replace "userId" "this.userId"}}{{#replace "{" "${"}}{{{path}}}{{/replace}}{{/replace}}`,
@@ -99,9 +99,9 @@ export class {{{name}}}{{{@root.postfix}}} {
 		});
 
 		if (!result.ok) {
-            catchError(result as IBaseResult<IErrorResult>);
+            catchError(result as BaseResult<ErrorResult>);
         }
-        return result as IBaseResult<{{>result}}>;
+        return result as BaseResult<{{>result}}>;
 	}
 
 	{{/each}}
