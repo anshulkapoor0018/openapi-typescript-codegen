@@ -4836,16 +4836,16 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
   stack1 = (((helper = lookupProperty(helpers,"deleteUserId") || alias2(depth0, "deleteUserId", {"start":{"line":83,"column":28},"end":{"line":83,"column":40}} ))),(options={"name":"deleteUserId","hash":{},"fn":container.program(39, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":83,"column":25},"end":{"line":83,"column":76}}}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
   if (!lookupProperty(helpers,"deleteUserId")) { stack1 = container.hooks.blockHelperMissing.call(depth0,stack1,options);}
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "): Promise<IBaseResult<"
+  return buffer + "): Promise<BaseResult<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + " | IErrorResult>> {\n		const result = await __request({\n			method: '"
+    + " | ErrorResult>> {\n		const result = await __request({\n			method: '"
     + ((stack1 = (((helper = lookupProperty(helpers,"method") || alias2(depth0, "method", {"start":{"line":85,"column":15},"end":{"line":85,"column":21}} ))),(typeof helper === alias3 ? helper.call(alias1,{"name":"method","hash":{},"data":data,"loc":{"start":{"line":85,"column":12},"end":{"line":85,"column":24}}}) : helper))) != null ? stack1 : "")
     + "',\n			path: `"
     + ((stack1 = (lookupProperty(helpers,"replace")||alias2(depth0, "replace", {"start":{"line":86,"column":13},"end":{"line":86,"column":20}} )).call(alias1,"userId","this.userId",{"name":"replace","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":86,"column":10},"end":{"line":86,"column":100}}})) != null ? stack1 : "")
     + "`,\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"parametersQuery"),{"name":"if","hash":{},"fn":container.program(44, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":87,"column":3},"end":{"line":93,"column":10}}})) != null ? stack1 : "")
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"parametersBody"),{"name":"if","hash":{},"fn":container.program(47, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":94,"column":3},"end":{"line":98,"column":10}}})) != null ? stack1 : "")
-    + "		});\n\n		if (!result.ok) {\n            catchError(result as IBaseResult<IErrorResult>);\n        }\n        return result as IBaseResult<"
+    + "		});\n\n		if (!result.ok) {\n            catchError(result as BaseResult<ErrorResult>);\n        }\n        return result as BaseResult<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ">;\n	}\n\n";
 },"26":function(container,depth0,helpers,partials,data) {
