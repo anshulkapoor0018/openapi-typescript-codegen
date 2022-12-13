@@ -4801,7 +4801,7 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
 },"14":function(container,depth0,helpers,partials,data) {
     return "import type { BaseHttpRequest } from '../core/BaseHttpRequest';\n";
 },"16":function(container,depth0,helpers,partials,data) {
-    return "import { IErrorResult } from 'sdk/src/api/models/IResult/IErrorResult';\nimport { IBaseResult } from 'sdk/src/api/models/IResult/IBaseResult';\nimport { catchError } from 'sdk/src/api/core/ApiError';\nimport { request as __request } from 'sdk/src/api/core/request';\nimport { AuthHandler } from \"sdk/src/utilities/classes/AuthHandler\";\n\n";
+    return "import { ErrorResult } from \"sdk/src/api/models/Interfaces/Repository/ErrorResult\";\nimport { BaseResult } from \"sdk/src/api/models/Interfaces/Repository/BaseResult\";\nimport { catchError } from 'sdk/src/api/core/ApiError';\nimport { request as __request } from 'sdk/src/api/core/request';\nimport { AuthHandler } from \"sdk/src/utilities/classes/AuthHandler\";\n\n";
 },"18":function(container,depth0,helpers,partials,data) {
     return "@Injectable({\n	providedIn: 'root',\n})\n";
 },"20":function(container,depth0,helpers,partials,data) {

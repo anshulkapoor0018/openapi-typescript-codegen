@@ -27,8 +27,8 @@ import { BaseHttpRequest } from '../core/BaseHttpRequest';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 {{/equals}}
 {{else}}
-import { IErrorResult } from 'sdk/src/api/models/IResult/IErrorResult';
-import { IBaseResult } from 'sdk/src/api/models/IResult/IBaseResult';
+import { ErrorResult } from "sdk/src/api/models/Interfaces/Repository/ErrorResult";
+import { BaseResult } from "sdk/src/api/models/Interfaces/Repository/BaseResult";
 import { catchError } from 'sdk/src/api/core/ApiError';
 import { request as __request } from 'sdk/src/api/core/request';
 import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
