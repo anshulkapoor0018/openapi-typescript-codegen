@@ -1,86 +1,69 @@
 {{>header}}
 
-{{#equals @root.httpClient 'angular'}}
-{{#if @root.exportClient}}
-import { Injectable } from '@angular/core';
-import type { Observable } from 'rxjs';
-{{else}}
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import type { Observable } from 'rxjs';
-{{/if}}
-
-{{/equals}}
 {{#if imports}}
 {{#each imports}}
 import type { {{{this}}} } from 'sdk/src/api/models/Interfaces/GluonInterfaces/{{{this}}}';
 {{/each}}
-
 {{/if}}
-{{#notEquals @root.httpClient 'angular'}}
-{{!-- import type { CancelablePromise } from '../core/CancelablePromise'; --}}
-{{/notEquals}}
-{{#if @root.exportClient}}
-{{#equals @root.httpClient 'angular'}}
-import { BaseHttpRequest } from '../core/BaseHttpRequest';
-{{else}}
-import type { BaseHttpRequest } from '../core/BaseHttpRequest';
-{{/equals}}
-{{else}}
+
 import { ErrorResult } from "sdk/src/api/models/Interfaces/Repository/ErrorResult";
 import { BaseResult } from "sdk/src/api/models/Interfaces/Repository/BaseResult";
 import { catchError } from 'sdk/src/api/core/ApiError';
 import { request as __request } from 'sdk/src/api/core/request';
 import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
 
-{{/if}}
+{{#each operations}}
+	/**
+	{{#if parameters}}
+	{{#each parameters}}
+		{{#if name}}
+			{{#notEquals name 'userId'}}
+	 			* @param { {{{type}}} } {{{name}}} {{#if description}}{{{escapeComment description}}}{{/if}}
+	 		{{/notEquals}}
+		{{/if}}
+	{{/each}}
+	{{/if}}
+	 */
+	export interface {{{name}}}Params {
+		{{#each parameters}}
+			{{#if name}}
+				{{#notEquals name 'userId'}}
+					{{{name}}}{{>isRequired}}: {{type}};
+				{{/notEquals}}
+			{{/if}}
+		{{/each}}
+	}
 
-{{#equals @root.httpClient 'angular'}}
-@Injectable({
-	providedIn: 'root',
-})
-{{/equals}}
+{{/each}}
+
 export class {{{name}}}{{{@root.postfix}}} {
 	private userId: string;
 	constructor() {
 		this.userId = AuthHandler.userId;
 	}
 
-	{{#if @root.exportClient}}
-
-	constructor(public readonly httpRequest: BaseHttpRequest) {}
-	{{else}}
-	{{#equals @root.httpClient 'angular'}}
-
-	constructor(public readonly http: HttpClient) {}
-	{{/equals}}
-	{{/if}}
-
 	{{#each operations}}
 	/**
-	{{#if deprecated}}
-	 * @deprecated
-	{{/if}}
-	{{#if summary}}
-	 * {{{escapeComment summary}}}
-	{{/if}}
-	{{#if description}}
-	 * {{{escapeComment description}}}
-	{{/if}}
-	{{#unless @root.useOptions}}
-	{{#if parameters}}
-	{{#each parameters}}
-	 * @param {{{name}}} {{#if description}}{{{escapeComment description}}}{{/if}}
-	{{/each}}
-	{{/if}}
-	{{/unless}}
+	 * @param { {{{name}}}Params } object
 	{{#each results}}
 	 * @returns {{{type}}} {{#if description}}{{{escapeComment description}}}{{/if}}
 	{{/each}}
 	 * @throws ApiError
 	 */
 
-	public async {{{name}}}({{#deleteUserId}} {{>parameters}} {{/deleteUserId}}): Promise<BaseResult<{{>result}} | ErrorResult>> {
+	public async {{{name}}}({
+		{{#each parameters}}
+			{{#if name}}
+				{{#notEquals name 'userId'}}
+					{{#if default}}
+						{{{name}}} = {{{default}}},
+					{{else}}
+						{{{name}}},
+					{{/if}}
+				{{/notEquals}}
+			{{/if}}
+		{{/each}}
+	}  : {{{name}}}Params ): Promise<BaseResult<{{>result}} | ErrorResult>> {
 		const result = await __request({
 			method: '{{{method}}}',
 			path: `{{#replace "userId" "this.userId"}}{{#replace "{" "${"}}{{{path}}}{{/replace}}{{/replace}}`,
