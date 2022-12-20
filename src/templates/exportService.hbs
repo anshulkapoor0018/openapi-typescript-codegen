@@ -70,7 +70,7 @@ export class {{{name}}}{{{@root.postfix}}} {
 			{{#if parametersQuery}}
 			query: {
 				{{#each parametersQuery}}
-				'{{{prop}}}': {{{name}}},
+				'{{{prop}}}': {{#replace "userId" "this.userId"}}{{{name}}}{{/replace}},
 				{{/each}}
 			},
 			{{/if}}
