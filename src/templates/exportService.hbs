@@ -24,7 +24,7 @@ import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
 	{{/each}}
 	{{/if}}
 	 */
-	export interface {{{name}}}Params {
+	export interface {{capitalizeFirst name}}Params {
 		{{#each parameters}}
 			{{#if name}}
 				{{#notEquals name 'userId'}}
@@ -67,7 +67,7 @@ export class {{{name}}}{{{@root.postfix}}} {
 				{{/notEquals}}
 			{{/if}}
 		{{/each}}
-	}  : {{{name}}}Params ): Promise<BaseResult<{{>result}} | ErrorResult>> {
+	}  : {{capitalizeFirst name}}Params ): Promise<BaseResult<{{>result}} | ErrorResult>> {
 		const result = await __request({
 			method: '{{{method}}}',
 			path: `{{#replace "userId" "this.userId"}}{{#replace "{" "${"}}{{{path}}}{{/replace}}{{/replace}}`,

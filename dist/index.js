@@ -4771,7 +4771,7 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
     + ((stack1 = alias1(depth0, depth0)) != null ? stack1 : "")
     + "';\n";
 },"4":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -4781,7 +4781,7 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
   return "	/**\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"parameters"),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":17,"column":1},"end":{"line":25,"column":8}}})) != null ? stack1 : "")
     + "	 */\n	export interface "
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || container.strict(depth0, "name", {"start":{"line":27,"column":21},"end":{"line":27,"column":25}} ))),(typeof helper === "function" ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":27,"column":18},"end":{"line":27,"column":28}}}) : helper))) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"capitalizeFirst")||container.strict(depth0, "capitalizeFirst", {"start":{"line":27,"column":20},"end":{"line":27,"column":35}} )).call(alias1,lookupProperty(depth0,"name"),{"name":"capitalizeFirst","hash":{},"data":data,"loc":{"start":{"line":27,"column":18},"end":{"line":27,"column":42}}})) != null ? stack1 : "")
     + "Params {\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,lookupProperty(depth0,"parameters"),{"name":"each","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":28,"column":2},"end":{"line":38,"column":11}}})) != null ? stack1 : "")
     + "	}\n\n";
@@ -4906,7 +4906,7 @@ var templateExportService = {"1":function(container,depth0,helpers,partials,data
     + "({\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias2,lookupProperty(depth0,"parameters"),{"name":"each","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":59,"column":2},"end":{"line":69,"column":11}}})) != null ? stack1 : "")
     + "	}  : "
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":70,"column":9},"end":{"line":70,"column":13}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":70,"column":6},"end":{"line":70,"column":16}}}) : helper))) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"capitalizeFirst")||alias1(depth0, "capitalizeFirst", {"start":{"line":70,"column":8},"end":{"line":70,"column":23}} )).call(alias2,lookupProperty(depth0,"name"),{"name":"capitalizeFirst","hash":{},"data":data,"loc":{"start":{"line":70,"column":6},"end":{"line":70,"column":30}}})) != null ? stack1 : "")
     + "Params ): Promise<BaseResult<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + " | ErrorResult>> {\n		const result = await __request({\n			method: '"
@@ -7063,16 +7063,19 @@ const registerHandlebarHelpers = (root) => {
         return '';
     });
     runtime.registerHelper('if_eq', function (a, options) {
-        var string = a;
+        let string = a;
         if (string.includes("Request"))
             return options.fn(this);
         else
             return options.inverse(this);
     });
     runtime.registerHelper('deleteUserId', function (options) {
-        var string = options.fn(this);
+        let string = options.fn(this);
         let re = new RegExp("userId: string,", 'g');
         return string.replace(re, "");
+    });
+    runtime.registerHelper('capitalizeFirst', function (a, options) {
+        return a.charAt(0).toUpperCase() + a.slice(1);
     });
     runtime.registerHelper('equals', function (a, b, options) {
         return a === b ? options.fn(this) : options.inverse(this);

@@ -32,7 +32,7 @@ export const registerHandlebarHelpers = (root: {
     });
 
     Handlebars.registerHelper('if_eq', function(this: any, a, options) {
-        var string = a as string;
+        let string = a as string;
         if(string.includes("Request"))
             return options.fn(this);
         else
@@ -40,10 +40,17 @@ export const registerHandlebarHelpers = (root: {
     });
 
     Handlebars.registerHelper('deleteUserId', function(this: any, options) {
-        var string = options.fn(this) as string;
+        let string = options.fn(this) as string;
         let re = new RegExp("userId: string,",'g');
         return string.replace(re, "");
     });
+
+    Handlebars.registerHelper(
+        'capitalizeFirst',
+        function (this: any, a: string, options: Handlebars.HelperOptions): string {
+            return a.charAt(0).toUpperCase() + a.slice(1)
+        }
+    );
 
     Handlebars.registerHelper(
         'equals',
