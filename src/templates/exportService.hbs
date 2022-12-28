@@ -18,8 +18,8 @@ import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
 	{{#each parameters}}
 		{{#if name}}
 			{{#notEquals name 'userId'}}
-	 			* @param { {{{type}}} } {{{name}}} {{#if description}}{{{escapeComment description}}}{{/if}}
-	 		{{/notEquals}}
+			* @param { {{{type}}} } {{{name}}} {{#if description}}{{{escapeComment description}}}{{/if}}
+			{{/notEquals}}
 		{{/if}}
 	{{/each}}
 	{{/if}}
@@ -28,7 +28,11 @@ import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
 		{{#each parameters}}
 			{{#if name}}
 				{{#notEquals name 'userId'}}
-					{{{name}}}{{>isRequired}}: {{type}};
+					{{#if isRequired}}
+						{{{name}}}: {{type}};
+					{{else}}
+						{{{name}}}?: {{type}};
+					{{/if}}
 				{{/notEquals}}
 			{{/if}}
 		{{/each}}
