@@ -15,7 +15,7 @@ describe('getServer', () => {
                         url: 'https://localhost:8080/api',
                     },
                 ],
-            })
+            }),
         ).toEqual('https://localhost:8080/api');
     });
 
@@ -41,7 +41,7 @@ describe('getServer', () => {
                         },
                     },
                 ],
-            })
+            }),
         ).toEqual('https://localhost:8080/api');
     });
 });

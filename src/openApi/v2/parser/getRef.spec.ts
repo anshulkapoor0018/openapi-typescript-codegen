@@ -23,8 +23,8 @@ describe('getRef', () => {
                 },
                 {
                     $ref: '#/definitions/Example',
-                }
-            )
+                },
+            ),
         ).toEqual({
             description: 'This is an Example model ',
             type: 'integer',

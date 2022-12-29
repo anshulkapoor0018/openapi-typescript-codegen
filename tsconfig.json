@@ -18,16 +18,9 @@
         "experimentalDecorators": true
     },
 
-    "files": [
-        "./src/typings/hbs.d.ts"
-    ],
+    "files": ["./src/typings/hbs.d.ts"],
 
-    "include": [
-        "./src/**/*.ts"
-    ],
+    "include": ["./src/**/*.ts"],
 
-    "exclude": [
-        "node_modules",
-        "**/__mocks__"
-    ]
+    "exclude": ["node_modules", "**/__mocks__"]
 }

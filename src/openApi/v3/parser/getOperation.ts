@@ -20,7 +20,7 @@ export const getOperation = (
     method: string,
     tag: string,
     op: OpenApiOperation,
-    pathParams: OperationParameters
+    pathParams: OperationParameters,
 ): Operation => {
     const serviceName = getServiceName(tag);
     const operationName = getOperationName(url, method, op.operationId);

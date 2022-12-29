@@ -6,7 +6,7 @@ export const generateClient = async (
     client: 'fetch' | 'xhr' | 'node' | 'axios' | 'angular',
     useOptions: boolean = false,
     useUnionTypes: boolean = false,
-    clientName?: string
+    clientName?: string,
 ) => {
     await __generate({
         input: `./test/spec/${version}.json`,

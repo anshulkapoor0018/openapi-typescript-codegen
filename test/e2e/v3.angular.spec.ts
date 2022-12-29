@@ -77,7 +77,7 @@ describe('v3.angular', () => {
                     'valuePath',
                     {
                         prop: 'valueBody',
-                    }
+                    },
                 ).subscribe(resolve);
             });
         });
@@ -115,7 +115,7 @@ describe('v3.angular', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -152,7 +152,7 @@ describe('v3.angular', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 });

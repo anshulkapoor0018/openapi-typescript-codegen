@@ -17,7 +17,7 @@ const start = async (dir: string) => {
             express.static(`./test/e2e/generated/${dir}/`, {
                 extensions: ['', 'js'],
                 index: 'index.js',
-            })
+            }),
         );
 
         _app.use(
@@ -25,7 +25,7 @@ const start = async (dir: string) => {
             express.static(`./test/e2e/generated/${dir}/`, {
                 extensions: ['', 'js'],
                 index: 'index.js',
-            })
+            }),
         );
 
         // Serve static assets

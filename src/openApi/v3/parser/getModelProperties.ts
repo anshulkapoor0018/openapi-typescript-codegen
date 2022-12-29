@@ -14,7 +14,7 @@ export const getModelProperties = (
     openApi: OpenApi,
     definition: OpenApiSchema,
     getModel: GetModelFn,
-    parent?: Model
+    parent?: Model,
 ): Model[] => {
     const models: Model[] = [];
     const discriminator = findOneOfParentDiscriminator(openApi, parent);

@@ -34,7 +34,7 @@ export const writeClientIndex = async (
     exportSchemas: boolean,
     postfixServices: string,
     postfixModels: string,
-    clientName?: string
+    clientName?: string,
 ): Promise<void> => {
     const templateResult = templates.index({
         exportCore,

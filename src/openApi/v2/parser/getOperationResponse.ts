@@ -10,7 +10,7 @@ import { getType } from './getType';
 export const getOperationResponse = (
     openApi: OpenApi,
     response: OpenApiResponse,
-    responseCode: number
+    responseCode: number,
 ): OperationResponse => {
     const operationResponse: OperationResponse = {
         in: 'response',

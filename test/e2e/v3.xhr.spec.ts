@@ -69,7 +69,7 @@ describe('v3.xhr', () => {
                 'valuePath',
                 {
                     prop: 'valueBody',
-                }
+                },
             );
         });
         expect(result).toBeDefined();
@@ -121,7 +121,7 @@ describe('v3.xhr', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -154,7 +154,7 @@ describe('v3.xhr', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 

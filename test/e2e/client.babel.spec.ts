@@ -133,7 +133,7 @@ describe('client.babel', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -169,7 +169,7 @@ describe('client.babel', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 });

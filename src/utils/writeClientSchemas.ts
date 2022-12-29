@@ -23,7 +23,7 @@ export const writeClientSchemas = async (
     outputPath: string,
     httpClient: HttpClient,
     useUnionTypes: boolean,
-    indent: Indent
+    indent: Indent,
 ): Promise<void> => {
     for (const model of models) {
         const file = resolve(outputPath, `$${model.name}.ts`);

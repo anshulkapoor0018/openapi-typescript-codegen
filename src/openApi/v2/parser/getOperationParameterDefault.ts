@@ -3,7 +3,7 @@ import type { OpenApiParameter } from '../interfaces/OpenApiParameter';
 
 export const getOperationParameterDefault = (
     parameter: OpenApiParameter,
-    operationParameter: OperationParameter
+    operationParameter: OperationParameter,
 ): string | undefined => {
     if (parameter.default === undefined) {
         return undefined;

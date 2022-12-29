@@ -1,0 +1,7 @@
+**/.circleci
+**/.github
+**/bin
+**/dist
+**/docs
+**/node_modules
+**/samples

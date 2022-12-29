@@ -20,57 +20,55 @@ export const registerHandlebarHelpers = (root: {
         return options.inverse(this);
     });
 
-    Handlebars.registerHelper('replace', function(this: any, find: string, replace:string, options) {
+    Handlebars.registerHelper('replace', function (this: any, find: string, replace: string, options) {
         var string = options.fn(this) as string;
-        let re = new RegExp(find,'g');
+        let re = new RegExp(find, 'g');
         return string.replace(re, replace);
     });
 
-    Handlebars.registerHelper('log', function(this: any, content) {
+    Handlebars.registerHelper('log', function (this: any, content) {
         console.log(content.fn(this));
         return '';
     });
 
-    Handlebars.registerHelper('if_eq', function(this: any, a, options) {
+    Handlebars.registerHelper('if_eq', function (this: any, a, options) {
         let string = a as string;
-        if(string.includes("Request"))
-            return options.fn(this);
-        else
-            return options.inverse(this);
+        if (string.includes('Request')) return options.fn(this);
+        else return options.inverse(this);
     });
 
-    Handlebars.registerHelper('deleteUserId', function(this: any, options) {
+    Handlebars.registerHelper('deleteUserId', function (this: any, options) {
         let string = options.fn(this) as string;
-        let re = new RegExp("userId: string,",'g');
-        return string.replace(re, "");
+        let re = new RegExp('userId: string,', 'g');
+        return string.replace(re, '');
     });
 
     Handlebars.registerHelper(
         'capitalizeFirst',
         function (this: any, a: string, options: Handlebars.HelperOptions): string {
-            return a.charAt(0).toUpperCase() + a.slice(1)
-        }
+            return a.charAt(0).toUpperCase() + a.slice(1);
+        },
     );
 
     Handlebars.registerHelper(
         'equals',
         function (this: any, a: string, b: string, options: Handlebars.HelperOptions): string {
             return a === b ? options.fn(this) : options.inverse(this);
-        }
+        },
     );
 
     Handlebars.registerHelper(
         'notEquals',
         function (this: any, a: string, b: string, options: Handlebars.HelperOptions): string {
             return a !== b ? options.fn(this) : options.inverse(this);
-        }
+        },
     );
 
     Handlebars.registerHelper(
         'containsSpaces',
         function (this: any, value: string, options: Handlebars.HelperOptions): string {
             return /\s+/.test(value) ? options.fn(this) : options.inverse(this);
-        }
+        },
     );
 
     Handlebars.registerHelper(
@@ -84,7 +82,7 @@ export const registerHandlebarHelpers = (root: {
                 uniqueTypesString = `(${uniqueTypesString})`;
             }
             return options.fn(uniqueTypesString);
-        }
+        },
     );
 
     Handlebars.registerHelper(
@@ -98,7 +96,7 @@ export const registerHandlebarHelpers = (root: {
                 uniqueTypesString = `(${uniqueTypesString})`;
             }
             return options.fn(uniqueTypesString);
-        }
+        },
     );
 
     Handlebars.registerHelper(
@@ -108,7 +106,7 @@ export const registerHandlebarHelpers = (root: {
             enumerators: Enum[],
             parent: string | undefined,
             name: string | undefined,
-            options: Handlebars.HelperOptions
+            options: Handlebars.HelperOptions,
         ) {
             if (!root.useUnionTypes && parent && name) {
                 return `${parent}.${name}`;
@@ -117,9 +115,9 @@ export const registerHandlebarHelpers = (root: {
                 enumerators
                     .map(enumerator => enumerator.value)
                     .filter(unique)
-                    .join(' | ')
+                    .join(' | '),
             );
-        }
+        },
     );
 
     Handlebars.registerHelper('escapeComment', function (value: string): string {

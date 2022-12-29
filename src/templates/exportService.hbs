@@ -6,11 +6,11 @@ import type { {{{this}}} } from 'sdk/src/api/models/Interfaces/GluonInterfaces/{
 {{/each}}
 {{/if}}
 
-import { ErrorResult } from "sdk/src/api/models/Interfaces/Repository/ErrorResult";
-import { BaseResult } from "sdk/src/api/models/Interfaces/Repository/BaseResult";
+import { ErrorResult } from 'sdk/src/api/models/Interfaces/Repository/ErrorResult';
+import { BaseResult } from 'sdk/src/api/models/Interfaces/Repository/BaseResult';
 import { catchError } from 'sdk/src/api/core/ApiError';
 import { request as __request } from 'sdk/src/api/core/request';
-import { AuthHandler } from "sdk/src/utilities/classes/AuthHandler";
+import { AuthHandler } from 'sdk/src/utilities/classes/AuthHandler';
 
 {{#each operations}}
 	/**

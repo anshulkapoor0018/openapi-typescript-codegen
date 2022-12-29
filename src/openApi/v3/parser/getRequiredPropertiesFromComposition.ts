@@ -11,7 +11,7 @@ export const getRequiredPropertiesFromComposition = (
     openApi: OpenApi,
     required: string[],
     definitions: OpenApiSchema[],
-    getModel: GetModelFn
+    getModel: GetModelFn,
 ): Model[] => {
     return definitions
         .reduce((properties, definition) => {

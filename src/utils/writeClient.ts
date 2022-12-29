@@ -48,7 +48,7 @@ export const writeClient = async (
     postfixServices: string,
     postfixModels: string,
     clientName?: string,
-    request?: string
+    request?: string,
 ): Promise<void> => {
     const outputPath = resolve(process.cwd(), output);
     const outputPathCore = resolve(outputPath, 'core');
@@ -78,7 +78,7 @@ export const writeClient = async (
             useOptions,
             indent,
             postfixServices,
-            clientName
+            clientName,
         );
     }
 
@@ -112,7 +112,7 @@ export const writeClient = async (
             exportSchemas,
             postfixServices,
             postfixModels,
-            clientName
+            clientName,
         );
     }
 };

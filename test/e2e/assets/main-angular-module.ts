@@ -41,7 +41,7 @@ export class AppComponent {
         private readonly parametersService: ParametersService,
         private readonly responseService: ResponseService,
         private readonly simpleService: SimpleService,
-        private readonly typesService: TypesService
+        private readonly typesService: TypesService,
     ) {
         (window as any).api = {
             OpenAPI,

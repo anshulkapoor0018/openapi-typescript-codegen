@@ -77,7 +77,7 @@ describe('client.angular', () => {
                     'valuePath',
                     {
                         prop: 'valueBody',
-                    }
+                    },
                 ).subscribe(resolve);
             });
         });
@@ -98,7 +98,7 @@ describe('client.angular', () => {
                                 status: e.status,
                                 statusText: e.statusText,
                                 body: e.body,
-                            })
+                            }),
                         );
                     },
                 });
@@ -115,7 +115,7 @@ describe('client.angular', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -133,7 +133,7 @@ describe('client.angular', () => {
                                 status: e.status,
                                 statusText: e.statusText,
                                 body: e.body,
-                            })
+                            }),
                         );
                     },
                 });
@@ -150,7 +150,7 @@ describe('client.angular', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 });

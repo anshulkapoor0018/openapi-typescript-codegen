@@ -13,7 +13,7 @@ describe('getServer', () => {
                 basePath: '/api',
                 schemes: ['http', 'https'],
                 paths: {},
-            })
+            }),
         ).toEqual('http://localhost:8080/api');
     });
 });

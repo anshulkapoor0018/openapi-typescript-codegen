@@ -75,7 +75,7 @@ describe('client.xhr', () => {
                 'valuePath',
                 {
                     prop: 'valueBody',
-                }
+                },
             );
         });
         expect(result).toBeDefined();
@@ -129,7 +129,7 @@ describe('client.xhr', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -163,7 +163,7 @@ describe('client.xhr', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 });

@@ -30,7 +30,7 @@ export const writeClientClass = async (
     httpClient: HttpClient,
     clientName: string,
     indent: Indent,
-    postfix: string
+    postfix: string,
 ): Promise<void> => {
     const templateResult = templates.client({
         clientName,

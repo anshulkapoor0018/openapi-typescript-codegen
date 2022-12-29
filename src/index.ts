@@ -95,7 +95,7 @@ export const generate = async ({
                 postfixServices,
                 postfixModels,
                 clientName,
-                request
+                request,
             );
             break;
         }
@@ -119,7 +119,7 @@ export const generate = async ({
                 postfixServices,
                 postfixModels,
                 clientName,
-                request
+                request,
             );
             break;
         }

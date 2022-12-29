@@ -26,7 +26,7 @@ export const writeClientCore = async (
     httpClient: HttpClient,
     indent: Indent,
     clientName?: string,
-    request?: string
+    request?: string,
 ): Promise<void> => {
     const httpRequest = getHttpRequestName(httpClient);
     const context = {

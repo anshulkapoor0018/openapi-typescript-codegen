@@ -13,7 +13,7 @@ export const getModel = (
     openApi: OpenApi,
     definition: OpenApiSchema,
     isDefinition: boolean = false,
-    name: string = ''
+    name: string = '',
 ): Model => {
     const model: Model = {
         name,

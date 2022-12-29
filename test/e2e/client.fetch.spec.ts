@@ -75,7 +75,7 @@ describe('client.fetch', () => {
                 'valuePath',
                 {
                     prop: 'valueBody',
-                }
+                },
             );
         });
         expect(result).toBeDefined();
@@ -130,7 +130,7 @@ describe('client.fetch', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -164,7 +164,7 @@ describe('client.fetch', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 });

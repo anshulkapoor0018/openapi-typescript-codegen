@@ -4066,7 +4066,7 @@ var angularGetHeaders = {"compiler":[8,">= 4.3.0"],"main":function(container,dep
 },"useData":true};
 
 var angularGetRequestBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getRequestBody = (options: ApiRequestOptions): any => {\n	if (options.body) {\n		if (options.mediaType?.includes('/json')) {\n			return JSON.stringify(options.body)\n		} else if (isString(options.body) || isBlob(options.body) || isFormData(options.body)) {\n			return options.body;\n		} else {\n			return JSON.stringify(options.body);\n		}\n	}\n	return undefined;\n};";
+    return "const getRequestBody = (options: ApiRequestOptions): any => { if (options.body) { if\n(options.mediaType?.includes('/json')) { return JSON.stringify(options.body) } else if (isString(options.body) ||\nisBlob(options.body) || isFormData(options.body)) { return options.body; } else { return JSON.stringify(options.body); }\n} return undefined; };";
 },"useData":true};
 
 var angularGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4166,7 +4166,7 @@ var axiosGetHeaders = {"compiler":[8,">= 4.3.0"],"main":function(container,depth
 },"useData":true};
 
 var axiosGetRequestBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getRequestBody = (options: ApiRequestOptions): any => {\n	if (options.body) {\n		return options.body;\n	}\n	return undefined;\n};";
+    return "const getRequestBody = (options: ApiRequestOptions): any => { if (options.body) { return options.body; } return\nundefined; };";
 },"useData":true};
 
 var axiosGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4274,7 +4274,7 @@ var fetchGetHeaders = {"compiler":[8,">= 4.3.0"],"main":function(container,depth
 },"useData":true};
 
 var fetchGetRequestBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getRequestBody = (options: ApiRequestOptions): any => {\n	if (options.body !== undefined) {\n		if (options.mediaType?.includes('/json')) {\n			return JSON.stringify(options.body)\n		} else if (isString(options.body) || isBlob(options.body) || isFormData(options.body)) {\n			return options.body;\n		} else {\n			return JSON.stringify(options.body);\n		}\n	}\n	return undefined;\n};";
+    return "const getRequestBody = (options: ApiRequestOptions): any => { if (options.body !== undefined) { if\n(options.mediaType?.includes('/json')) { return JSON.stringify(options.body) } else if (isString(options.body) ||\nisBlob(options.body) || isFormData(options.body)) { return options.body; } else { return JSON.stringify(options.body); }\n} return undefined; };";
 },"useData":true};
 
 var fetchGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4282,7 +4282,7 @@ var fetchGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,
 },"useData":true};
 
 var fetchGetResponseHeader = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getResponseHeader = (response: Response, responseHeader?: string): string | undefined => {\n	if (responseHeader) {\n		const content = response.headers.get(responseHeader);\n		if (isString(content)) {\n			return content;\n		}\n	}\n	return undefined;\n};";
+    return "const getResponseHeader = (response: Response, responseHeader?: string): string | undefined => { if (responseHeader) {\nconst content = response.headers.get(responseHeader); if (isString(content)) { return content; } } return undefined; };";
 },"useData":true};
 
 var fetchRequest = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4334,7 +4334,7 @@ var fetchSendRequest = {"compiler":[8,">= 4.3.0"],"main":function(container,dept
 },"useData":true};
 
 var functionBase64 = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const base64 = (str: string): string => {\n	try {\n		return btoa(str);\n	} catch (err) {\n		// @ts-ignore\n		return Buffer.from(str).toString('base64');\n	}\n};";
+    return "const base64 = (str: string): string => { try { return btoa(str); } catch (err) { // @ts-ignore return\nBuffer.from(str).toString('base64'); } };";
 },"useData":true};
 
 var functionCatchErrorCodes = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4342,7 +4342,7 @@ var functionCatchErrorCodes = {"compiler":[8,">= 4.3.0"],"main":function(contain
 },"useData":true};
 
 var functionGetFormData = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getFormData = (options: ApiRequestOptions): FormData | undefined => {\n	if (options.formData) {\n		const formData = new FormData();\n\n		const process = (key: string, value: any) => {\n			if (isString(value) || isBlob(value)) {\n				formData.append(key, value);\n			} else {\n				formData.append(key, JSON.stringify(value));\n			}\n		};\n\n		Object.entries(options.formData)\n			.filter(([_, value]) => isDefined(value))\n			.forEach(([key, value]) => {\n				if (Array.isArray(value)) {\n					value.forEach(v => process(key, v));\n				} else {\n					process(key, value);\n				}\n			});\n\n		return formData;\n	}\n	return undefined;\n};";
+    return "const getFormData = (options: ApiRequestOptions): FormData | undefined => { if (options.formData) { const formData = new\nFormData(); const process = (key: string, value: any) => { if (isString(value) || isBlob(value)) { formData.append(key,\nvalue); } else { formData.append(key, JSON.stringify(value)); } }; Object.entries(options.formData) .filter(([_, value])\n=> isDefined(value)) .forEach(([key, value]) => { if (Array.isArray(value)) { value.forEach(v => process(key, v)); }\nelse { process(key, value); } }); return formData; } return undefined; };";
 },"useData":true};
 
 var functionGetQueryString = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4350,11 +4350,11 @@ var functionGetQueryString = {"compiler":[8,">= 4.3.0"],"main":function(containe
 },"useData":true};
 
 var functionGetUrl = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getUrl = (config: OpenAPIConfig, options: ApiRequestOptions): string => {\n	const encoder = config.ENCODE_PATH || encodeURI;\n\n	const path = options.url\n		.replace('{api-version}', config.VERSION)\n		.replace(/{(.*?)}/g, (substring: string, group: string) => {\n			if (options.path?.hasOwnProperty(group)) {\n				return encoder(String(options.path[group]));\n			}\n			return substring;\n		});\n\n	const url = `${config.BASE}${path}`;\n	if (options.query) {\n		return `${url}${getQueryString(options.query)}`;\n	}\n	return url;\n};";
+    return "const getUrl = (config: OpenAPIConfig, options: ApiRequestOptions): string => { const encoder = config.ENCODE_PATH ||\nencodeURI; const path = options.url .replace('{api-version}', config.VERSION) .replace(/{(.*?)}/g, (substring: string,\ngroup: string) => { if (options.path?.hasOwnProperty(group)) { return encoder(String(options.path[group])); } return\nsubstring; }); const url = `${config.BASE}${path}`; if (options.query) { return\n`${url}${getQueryString(options.query)}`; } return url; };";
 },"useData":true};
 
 var functionIsBlob = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const isBlob = (value: any): value is Blob => {\n	return (\n		typeof value === 'object' &&\n		typeof value.type === 'string' &&\n		typeof value.stream === 'function' &&\n		typeof value.arrayBuffer === 'function' &&\n		typeof value.constructor === 'function' &&\n		typeof value.constructor.name === 'string' &&\n		/^(Blob|File)$/.test(value.constructor.name) &&\n		/^(Blob|File)$/.test(value[Symbol.toStringTag])\n	);\n};";
+    return "const isBlob = (value: any): value is Blob => { return ( typeof value === 'object' && typeof value.type === 'string' &&\ntypeof value.stream === 'function' && typeof value.arrayBuffer === 'function' && typeof value.constructor === 'function'\n&& typeof value.constructor.name === 'string' && /^(Blob|File)$/.test(value.constructor.name) &&\n/^(Blob|File)$/.test(value[Symbol.toStringTag]) ); };";
 },"useData":true};
 
 var functionIsDefined = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4362,19 +4362,19 @@ var functionIsDefined = {"compiler":[8,">= 4.3.0"],"main":function(container,dep
 },"useData":true};
 
 var functionIsFormData = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const isFormData = (value: any): value is FormData => {\n	return value instanceof FormData;\n};";
+    return "const isFormData = (value: any): value is FormData => { return value instanceof FormData; };";
 },"useData":true};
 
 var functionIsString = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const isString = (value: any): value is string => {\n	return typeof value === 'string';\n};";
+    return "const isString = (value: any): value is string => { return typeof value === 'string'; };";
 },"useData":true};
 
 var functionIsStringWithValue = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const isStringWithValue = (value: any): value is string => {\n	return isString(value) && value !== '';\n};";
+    return "const isStringWithValue = (value: any): value is string => { return isString(value) && value !== ''; };";
 },"useData":true};
 
 var functionIsSuccess = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const isSuccess = (status: number): boolean => {\n	return status >= 200 && status < 300;\n};";
+    return "const isSuccess = (status: number): boolean => { return status >= 200 && status";
 },"useData":true};
 
 var functionResolve = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4422,7 +4422,7 @@ var nodeGetHeaders = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0
 },"useData":true};
 
 var nodeGetRequestBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getRequestBody = (options: ApiRequestOptions): any => {\n	if (options.body !== undefined) {\n		if (options.mediaType?.includes('/json')) {\n			return JSON.stringify(options.body)\n		} else if (isString(options.body) || isBlob(options.body) || isFormData(options.body)) {\n			return options.body as any;\n		} else {\n			return JSON.stringify(options.body);\n		}\n	}\n	return undefined;\n};";
+    return "const getRequestBody = (options: ApiRequestOptions): any => { if (options.body !== undefined) { if\n(options.mediaType?.includes('/json')) { return JSON.stringify(options.body) } else if (isString(options.body) ||\nisBlob(options.body) || isFormData(options.body)) { return options.body as any; } else { return\nJSON.stringify(options.body); } } return undefined; };";
 },"useData":true};
 
 var nodeGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4430,7 +4430,7 @@ var nodeGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,d
 },"useData":true};
 
 var nodeGetResponseHeader = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getResponseHeader = (response: Response, responseHeader?: string): string | undefined => {\n	if (responseHeader) {\n		const content = response.headers.get(responseHeader);\n		if (isString(content)) {\n			return content;\n		}\n	}\n	return undefined;\n};";
+    return "const getResponseHeader = (response: Response, responseHeader?: string): string | undefined => { if (responseHeader) {\nconst content = response.headers.get(responseHeader); if (isString(content)) { return content; } } return undefined; };";
 },"useData":true};
 
 var nodeRequest = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -4562,15 +4562,15 @@ var xhrGetHeaders = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,
 },"useData":true};
 
 var xhrGetRequestBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getRequestBody = (options: ApiRequestOptions): any => {\n	if (options.body !== undefined) {\n		if (options.mediaType?.includes('/json')) {\n			return JSON.stringify(options.body)\n		} else if (isString(options.body) || isBlob(options.body) || isFormData(options.body)) {\n			return options.body;\n		} else {\n			return JSON.stringify(options.body);\n		}\n	}\n	return undefined;\n};";
+    return "const getRequestBody = (options: ApiRequestOptions): any => { if (options.body !== undefined) { if\n(options.mediaType?.includes('/json')) { return JSON.stringify(options.body) } else if (isString(options.body) ||\nisBlob(options.body) || isFormData(options.body)) { return options.body; } else { return JSON.stringify(options.body); }\n} return undefined; };";
 },"useData":true};
 
 var xhrGetResponseBody = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getResponseBody = (xhr: XMLHttpRequest): any => {\n	if (xhr.status !== 204) {\n		try {\n			const contentType = xhr.getResponseHeader('Content-Type');\n			if (contentType) {\n				const jsonTypes = ['application/json', 'application/problem+json']\n				const isJSON = jsonTypes.some(type => contentType.toLowerCase().startsWith(type));\n				if (isJSON) {\n					return JSON.parse(xhr.responseText);\n				} else {\n					return xhr.responseText;\n				}\n			}\n		} catch (error) {\n			console.error(error);\n		}\n	}\n	return undefined;\n};";
+    return "const getResponseBody = (xhr: XMLHttpRequest): any => { if (xhr.status !== 204) { try { const contentType =\nxhr.getResponseHeader('Content-Type'); if (contentType) { const jsonTypes = ['application/json',\n'application/problem+json'] const isJSON = jsonTypes.some(type => contentType.toLowerCase().startsWith(type)); if\n(isJSON) { return JSON.parse(xhr.responseText); } else { return xhr.responseText; } } } catch (error) {\nconsole.error(error); } } return undefined; };";
 },"useData":true};
 
 var xhrGetResponseHeader = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "const getResponseHeader = (xhr: XMLHttpRequest, responseHeader?: string): string | undefined => {\n	if (responseHeader) {\n		const content = xhr.getResponseHeader(responseHeader);\n		if (isString(content)) {\n			return content;\n		}\n	}\n	return undefined;\n};";
+    return "const getResponseHeader = (xhr: XMLHttpRequest, responseHeader?: string): string | undefined => { if (responseHeader) {\nconst content = xhr.getResponseHeader(responseHeader); if (isString(content)) { return content; } } return undefined; };";
 },"useData":true};
 
 var xhrRequest = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -5277,11 +5277,11 @@ var partialBase = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"fetch",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":0},"end":{"line":2,"column":53}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"xhr",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":0},"end":{"line":3,"column":51}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"axios",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":0},"end":{"line":4,"column":53}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"angular",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":5,"column":0},"end":{"line":5,"column":55}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"node",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":0},"end":{"line":6,"column":52}}})) != null ? stack1 : "");
+  return ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"fetch",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":57}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"xhr",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":55}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"axios",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":4},"end":{"line":4,"column":57}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"angular",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":5,"column":4},"end":{"line":5,"column":59}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"equals").call(alias1,lookupProperty(lookupProperty(data,"root"),"httpClient"),"node",{"name":"equals","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":4},"end":{"line":6,"column":56}}})) != null ? stack1 : "");
 },"2":function(container,depth0,helpers,partials,data) {
     return "Blob";
 },"4":function(container,depth0,helpers,partials,data) {
@@ -5292,7 +5292,7 @@ var partialBase = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = (((helper = lookupProperty(helpers,"base") || container.strict(depth0, "base", {"start":{"line":8,"column":3},"end":{"line":8,"column":7}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"base","hash":{},"data":data,"loc":{"start":{"line":8,"column":0},"end":{"line":8,"column":10}}}) : helper))) != null ? stack1 : "");
+  return ((stack1 = (((helper = lookupProperty(helpers,"base") || container.strict(depth0, "base", {"start":{"line":8,"column":7},"end":{"line":8,"column":11}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"base","hash":{},"data":data,"loc":{"start":{"line":8,"column":4},"end":{"line":8,"column":14}}}) : helper))) != null ? stack1 : "");
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5428,10 +5428,10 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "/**\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"description"),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":0},"end":{"line":5,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"deprecated"),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":0},"end":{"line":8,"column":7}}})) != null ? stack1 : "")
-    + " */\n";
+  return "    /**\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"description"),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":4},"end":{"line":6,"column":11}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"deprecated"),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":4},"end":{"line":9,"column":11}}})) != null ? stack1 : "")
+    + "    */\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5440,11 +5440,11 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return " * "
-    + ((stack1 = lookupProperty(helpers,"escapeComment").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"description"),{"name":"escapeComment","hash":{},"data":data,"loc":{"start":{"line":4,"column":3},"end":{"line":4,"column":34}}})) != null ? stack1 : "")
+  return "        *\n        "
+    + ((stack1 = lookupProperty(helpers,"escapeComment").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"description"),{"name":"escapeComment","hash":{},"data":data,"loc":{"start":{"line":5,"column":8},"end":{"line":5,"column":39}}})) != null ? stack1 : "")
     + "\n";
 },"4":function(container,depth0,helpers,partials,data) {
-    return " * @deprecated\n";
+    return "        * @deprecated\n";
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5453,8 +5453,8 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"description"),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":13,"column":1},"end":{"line":17,"column":8}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"containsSpaces").call(alias1,lookupProperty(depth0,"name"),{"name":"containsSpaces","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data,"loc":{"start":{"line":18,"column":1},"end":{"line":22,"column":20}}})) != null ? stack1 : "");
+  return ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"description"),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":16,"column":4},"end":{"line":20,"column":11}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"containsSpaces").call(alias1,lookupProperty(depth0,"name"),{"name":"containsSpaces","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data,"loc":{"start":{"line":21,"column":4},"end":{"line":28,"column":23}}})) != null ? stack1 : "");
 },"7":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5463,9 +5463,9 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "	/**\n	 * "
-    + ((stack1 = lookupProperty(helpers,"escapeComment").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"description"),{"name":"escapeComment","hash":{},"data":data,"loc":{"start":{"line":15,"column":4},"end":{"line":15,"column":35}}})) != null ? stack1 : "")
-    + "\n	 */\n";
+  return "        /** *\n        "
+    + ((stack1 = lookupProperty(helpers,"escapeComment").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"description"),{"name":"escapeComment","hash":{},"data":data,"loc":{"start":{"line":18,"column":8},"end":{"line":18,"column":39}}})) != null ? stack1 : "")
+    + "\n        */\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.strict, alias2=depth0 != null ? depth0 : (container.nullContext || {}), alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5474,10 +5474,10 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "	'"
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":19,"column":5},"end":{"line":19,"column":9}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":19,"column":2},"end":{"line":19,"column":12}}}) : helper))) != null ? stack1 : "")
-    + "' = "
-    + ((stack1 = (((helper = lookupProperty(helpers,"value") || alias1(depth0, "value", {"start":{"line":19,"column":19},"end":{"line":19,"column":24}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"value","hash":{},"data":data,"loc":{"start":{"line":19,"column":16},"end":{"line":19,"column":27}}}) : helper))) != null ? stack1 : "")
+  return "        '"
+    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":22,"column":12},"end":{"line":22,"column":16}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":22,"column":9},"end":{"line":22,"column":19}}}) : helper))) != null ? stack1 : "")
+    + "' =\n        "
+    + ((stack1 = (((helper = lookupProperty(helpers,"value") || alias1(depth0, "value", {"start":{"line":23,"column":11},"end":{"line":23,"column":16}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"value","hash":{},"data":data,"loc":{"start":{"line":23,"column":8},"end":{"line":23,"column":19}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"11":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.strict, alias2=depth0 != null ? depth0 : (container.nullContext || {}), alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -5487,10 +5487,10 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "	"
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":21,"column":4},"end":{"line":21,"column":8}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":21,"column":1},"end":{"line":21,"column":11}}}) : helper))) != null ? stack1 : "")
-    + " = "
-    + ((stack1 = (((helper = lookupProperty(helpers,"value") || alias1(depth0, "value", {"start":{"line":21,"column":17},"end":{"line":21,"column":22}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"value","hash":{},"data":data,"loc":{"start":{"line":21,"column":14},"end":{"line":21,"column":25}}}) : helper))) != null ? stack1 : "")
+  return "        "
+    + ((stack1 = (((helper = lookupProperty(helpers,"name") || alias1(depth0, "name", {"start":{"line":25,"column":11},"end":{"line":25,"column":15}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":25,"column":8},"end":{"line":25,"column":18}}}) : helper))) != null ? stack1 : "")
+    + "\n        =\n        "
+    + ((stack1 = (((helper = lookupProperty(helpers,"value") || alias1(depth0, "value", {"start":{"line":27,"column":11},"end":{"line":27,"column":16}} ))),(typeof helper === alias3 ? helper.call(alias2,{"name":"value","hash":{},"data":data,"loc":{"start":{"line":27,"column":8},"end":{"line":27,"column":19}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -5500,11 +5500,11 @@ var partialExportEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"ifdef").call(alias1,lookupProperty(depth0,"description"),lookupProperty(depth0,"deprecated"),{"name":"ifdef","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":1,"column":0},"end":{"line":10,"column":10}}})) != null ? stack1 : "")
-    + "export enum "
-    + ((stack1 = (((helper = lookupProperty(helpers,"name") || container.strict(depth0, "name", {"start":{"line":11,"column":15},"end":{"line":11,"column":19}} ))),(typeof helper === "function" ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":11,"column":12},"end":{"line":11,"column":22}}}) : helper))) != null ? stack1 : "")
-    + " {\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,lookupProperty(depth0,"enum"),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":12,"column":1},"end":{"line":23,"column":10}}})) != null ? stack1 : "")
+  return ((stack1 = lookupProperty(helpers,"ifdef").call(alias1,lookupProperty(depth0,"description"),lookupProperty(depth0,"deprecated"),{"name":"ifdef","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":1,"column":0},"end":{"line":11,"column":10}}})) != null ? stack1 : "")
+    + "export enum\n"
+    + ((stack1 = (((helper = lookupProperty(helpers,"name") || container.strict(depth0, "name", {"start":{"line":13,"column":3},"end":{"line":13,"column":7}} ))),(typeof helper === "function" ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":13,"column":0},"end":{"line":13,"column":10}}}) : helper))) != null ? stack1 : "")
+    + "\n{\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,lookupProperty(depth0,"enum"),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":15,"column":0},"end":{"line":29,"column":9}}})) != null ? stack1 : "")
     + "}";
 },"useData":true};
 
@@ -5729,7 +5729,7 @@ var partialExportType = {"1":function(container,depth0,helpers,partials,data) {
 },"usePartial":true,"useData":true};
 
 var partialHeader = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "/* istanbul ignore file */\n/* tslint:disable */\n/* eslint-disable */";
+    return "/* istanbul ignore file */ /* tslint:disable */ /* eslint-disable */";
 },"useData":true};
 
 var partialIsNullable = {"1":function(container,depth0,helpers,partials,data) {
@@ -5766,7 +5766,7 @@ var partialIsRequired = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"unless").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"isRequired"),{"name":"unless","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":2,"column":0},"end":{"line":2,"column":54}}})) != null ? stack1 : "");
+  return ((stack1 = lookupProperty(helpers,"unless").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"isRequired"),{"name":"unless","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":69}}})) != null ? stack1 : "");
 },"2":function(container,depth0,helpers,partials,data) {
     return "?";
 },"4":function(container,depth0,helpers,partials,data) {
@@ -5777,7 +5777,7 @@ var partialIsRequired = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"default"),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":23},"end":{"line":2,"column":43}}})) != null ? stack1 : "");
+  return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"default"),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":35},"end":{"line":2,"column":58}}})) != null ? stack1 : "");
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5786,7 +5786,7 @@ var partialIsRequired = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"unless").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"isRequired"),{"name":"unless","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":0},"end":{"line":4,"column":64}}})) != null ? stack1 : "");
+  return ((stack1 = lookupProperty(helpers,"unless").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"isRequired"),{"name":"unless","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":4},"end":{"line":4,"column":68}}})) != null ? stack1 : "");
 },"7":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -5795,7 +5795,7 @@ var partialIsRequired = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return ((stack1 = lookupProperty(helpers,"unless").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"default"),{"name":"unless","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":22},"end":{"line":4,"column":53}}})) != null ? stack1 : "");
+  return ((stack1 = lookupProperty(helpers,"unless").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"default"),{"name":"unless","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":26},"end":{"line":4,"column":57}}})) != null ? stack1 : "");
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -6304,8 +6304,8 @@ var partialSchemaEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "	isReadOnly: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"isReadOnly") || container.strict(depth0, "isReadOnly", {"start":{"line":4,"column":16},"end":{"line":4,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isReadOnly","hash":{},"data":data,"loc":{"start":{"line":4,"column":13},"end":{"line":4,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    isReadOnly:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"isReadOnly") || container.strict(depth0, "isReadOnly", {"start":{"line":4,"column":7},"end":{"line":4,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isReadOnly","hash":{},"data":data,"loc":{"start":{"line":4,"column":4},"end":{"line":4,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6315,8 +6315,8 @@ var partialSchemaEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "	isRequired: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"isRequired") || container.strict(depth0, "isRequired", {"start":{"line":7,"column":16},"end":{"line":7,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isRequired","hash":{},"data":data,"loc":{"start":{"line":7,"column":13},"end":{"line":7,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    isRequired:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"isRequired") || container.strict(depth0, "isRequired", {"start":{"line":8,"column":7},"end":{"line":8,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isRequired","hash":{},"data":data,"loc":{"start":{"line":8,"column":4},"end":{"line":8,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6326,8 +6326,8 @@ var partialSchemaEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "	isNullable: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"isNullable") || container.strict(depth0, "isNullable", {"start":{"line":10,"column":16},"end":{"line":10,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isNullable","hash":{},"data":data,"loc":{"start":{"line":10,"column":13},"end":{"line":10,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    isNullable:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"isNullable") || container.strict(depth0, "isNullable", {"start":{"line":12,"column":7},"end":{"line":12,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isNullable","hash":{},"data":data,"loc":{"start":{"line":12,"column":4},"end":{"line":12,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6337,10 +6337,10 @@ var partialSchemaEnum = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "{\n	type: 'Enum',\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isReadOnly"),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":0},"end":{"line":5,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isRequired"),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":0},"end":{"line":8,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isNullable"),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":9,"column":0},"end":{"line":11,"column":7}}})) != null ? stack1 : "")
+  return "{ type: 'Enum',\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isReadOnly"),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":0},"end":{"line":5,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isRequired"),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":0},"end":{"line":9,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isNullable"),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":10,"column":0},"end":{"line":13,"column":7}}})) != null ? stack1 : "")
     + "}";
 },"useData":true};
 
@@ -6352,8 +6352,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	type: '"
-    + ((stack1 = (((helper = lookupProperty(helpers,"type") || container.strict(depth0, "type", {"start":{"line":3,"column":11},"end":{"line":3,"column":15}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"type","hash":{},"data":data,"loc":{"start":{"line":3,"column":8},"end":{"line":3,"column":18}}}) : helper))) != null ? stack1 : "")
+  return "    type: '"
+    + ((stack1 = (((helper = lookupProperty(helpers,"type") || container.strict(depth0, "type", {"start":{"line":3,"column":14},"end":{"line":3,"column":18}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"type","hash":{},"data":data,"loc":{"start":{"line":3,"column":11},"end":{"line":3,"column":21}}}) : helper))) != null ? stack1 : "")
     + "',\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6363,8 +6363,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	description: `"
-    + ((stack1 = lookupProperty(helpers,"escapeDescription").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"description"),{"name":"escapeDescription","hash":{},"data":data,"loc":{"start":{"line":6,"column":15},"end":{"line":6,"column":50}}})) != null ? stack1 : "")
+  return "    description: `"
+    + ((stack1 = lookupProperty(helpers,"escapeDescription").call(depth0 != null ? depth0 : (container.nullContext || {}),lookupProperty(depth0,"description"),{"name":"escapeDescription","hash":{},"data":data,"loc":{"start":{"line":6,"column":18},"end":{"line":6,"column":53}}})) != null ? stack1 : "")
     + "`,\n";
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6374,8 +6374,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	isReadOnly: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"isReadOnly") || container.strict(depth0, "isReadOnly", {"start":{"line":9,"column":16},"end":{"line":9,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isReadOnly","hash":{},"data":data,"loc":{"start":{"line":9,"column":13},"end":{"line":9,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    isReadOnly:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"isReadOnly") || container.strict(depth0, "isReadOnly", {"start":{"line":10,"column":7},"end":{"line":10,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isReadOnly","hash":{},"data":data,"loc":{"start":{"line":10,"column":4},"end":{"line":10,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"7":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6385,8 +6385,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	isRequired: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"isRequired") || container.strict(depth0, "isRequired", {"start":{"line":12,"column":16},"end":{"line":12,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isRequired","hash":{},"data":data,"loc":{"start":{"line":12,"column":13},"end":{"line":12,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    isRequired:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"isRequired") || container.strict(depth0, "isRequired", {"start":{"line":14,"column":7},"end":{"line":14,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isRequired","hash":{},"data":data,"loc":{"start":{"line":14,"column":4},"end":{"line":14,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6396,8 +6396,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	isNullable: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"isNullable") || container.strict(depth0, "isNullable", {"start":{"line":15,"column":16},"end":{"line":15,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isNullable","hash":{},"data":data,"loc":{"start":{"line":15,"column":13},"end":{"line":15,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    isNullable:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"isNullable") || container.strict(depth0, "isNullable", {"start":{"line":18,"column":7},"end":{"line":18,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"isNullable","hash":{},"data":data,"loc":{"start":{"line":18,"column":4},"end":{"line":18,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"11":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6407,8 +6407,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	format: '"
-    + ((stack1 = (((helper = lookupProperty(helpers,"format") || container.strict(depth0, "format", {"start":{"line":18,"column":13},"end":{"line":18,"column":19}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"format","hash":{},"data":data,"loc":{"start":{"line":18,"column":10},"end":{"line":18,"column":22}}}) : helper))) != null ? stack1 : "")
+  return "    format: '"
+    + ((stack1 = (((helper = lookupProperty(helpers,"format") || container.strict(depth0, "format", {"start":{"line":21,"column":16},"end":{"line":21,"column":22}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"format","hash":{},"data":data,"loc":{"start":{"line":21,"column":13},"end":{"line":21,"column":25}}}) : helper))) != null ? stack1 : "")
     + "',\n";
 },"13":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6418,8 +6418,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	maximum: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"maximum") || container.strict(depth0, "maximum", {"start":{"line":21,"column":13},"end":{"line":21,"column":20}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maximum","hash":{},"data":data,"loc":{"start":{"line":21,"column":10},"end":{"line":21,"column":23}}}) : helper))) != null ? stack1 : "")
+  return "    maximum:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"maximum") || container.strict(depth0, "maximum", {"start":{"line":25,"column":7},"end":{"line":25,"column":14}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maximum","hash":{},"data":data,"loc":{"start":{"line":25,"column":4},"end":{"line":25,"column":17}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"15":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6429,8 +6429,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	exclusiveMaximum: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"exclusiveMaximum") || container.strict(depth0, "exclusiveMaximum", {"start":{"line":24,"column":22},"end":{"line":24,"column":38}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"exclusiveMaximum","hash":{},"data":data,"loc":{"start":{"line":24,"column":19},"end":{"line":24,"column":41}}}) : helper))) != null ? stack1 : "")
+  return "    exclusiveMaximum:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"exclusiveMaximum") || container.strict(depth0, "exclusiveMaximum", {"start":{"line":29,"column":7},"end":{"line":29,"column":23}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"exclusiveMaximum","hash":{},"data":data,"loc":{"start":{"line":29,"column":4},"end":{"line":29,"column":26}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"17":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6440,8 +6440,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	minimum: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"minimum") || container.strict(depth0, "minimum", {"start":{"line":27,"column":13},"end":{"line":27,"column":20}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minimum","hash":{},"data":data,"loc":{"start":{"line":27,"column":10},"end":{"line":27,"column":23}}}) : helper))) != null ? stack1 : "")
+  return "    minimum:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"minimum") || container.strict(depth0, "minimum", {"start":{"line":33,"column":7},"end":{"line":33,"column":14}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minimum","hash":{},"data":data,"loc":{"start":{"line":33,"column":4},"end":{"line":33,"column":17}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"19":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6451,8 +6451,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	exclusiveMinimum: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"exclusiveMinimum") || container.strict(depth0, "exclusiveMinimum", {"start":{"line":30,"column":22},"end":{"line":30,"column":38}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"exclusiveMinimum","hash":{},"data":data,"loc":{"start":{"line":30,"column":19},"end":{"line":30,"column":41}}}) : helper))) != null ? stack1 : "")
+  return "    exclusiveMinimum:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"exclusiveMinimum") || container.strict(depth0, "exclusiveMinimum", {"start":{"line":37,"column":7},"end":{"line":37,"column":23}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"exclusiveMinimum","hash":{},"data":data,"loc":{"start":{"line":37,"column":4},"end":{"line":37,"column":26}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"21":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6462,8 +6462,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	multipleOf: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"multipleOf") || container.strict(depth0, "multipleOf", {"start":{"line":33,"column":16},"end":{"line":33,"column":26}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"multipleOf","hash":{},"data":data,"loc":{"start":{"line":33,"column":13},"end":{"line":33,"column":29}}}) : helper))) != null ? stack1 : "")
+  return "    multipleOf:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"multipleOf") || container.strict(depth0, "multipleOf", {"start":{"line":41,"column":7},"end":{"line":41,"column":17}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"multipleOf","hash":{},"data":data,"loc":{"start":{"line":41,"column":4},"end":{"line":41,"column":20}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"23":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6473,8 +6473,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	maxLength: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"maxLength") || container.strict(depth0, "maxLength", {"start":{"line":36,"column":15},"end":{"line":36,"column":24}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maxLength","hash":{},"data":data,"loc":{"start":{"line":36,"column":12},"end":{"line":36,"column":27}}}) : helper))) != null ? stack1 : "")
+  return "    maxLength:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"maxLength") || container.strict(depth0, "maxLength", {"start":{"line":45,"column":7},"end":{"line":45,"column":16}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maxLength","hash":{},"data":data,"loc":{"start":{"line":45,"column":4},"end":{"line":45,"column":19}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"25":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6484,8 +6484,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	minLength: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"minLength") || container.strict(depth0, "minLength", {"start":{"line":39,"column":15},"end":{"line":39,"column":24}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minLength","hash":{},"data":data,"loc":{"start":{"line":39,"column":12},"end":{"line":39,"column":27}}}) : helper))) != null ? stack1 : "")
+  return "    minLength:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"minLength") || container.strict(depth0, "minLength", {"start":{"line":49,"column":7},"end":{"line":49,"column":16}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minLength","hash":{},"data":data,"loc":{"start":{"line":49,"column":4},"end":{"line":49,"column":19}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"27":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6495,8 +6495,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	pattern: '"
-    + ((stack1 = (((helper = lookupProperty(helpers,"pattern") || container.strict(depth0, "pattern", {"start":{"line":42,"column":14},"end":{"line":42,"column":21}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"pattern","hash":{},"data":data,"loc":{"start":{"line":42,"column":11},"end":{"line":42,"column":24}}}) : helper))) != null ? stack1 : "")
+  return "    pattern: '"
+    + ((stack1 = (((helper = lookupProperty(helpers,"pattern") || container.strict(depth0, "pattern", {"start":{"line":52,"column":17},"end":{"line":52,"column":24}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"pattern","hash":{},"data":data,"loc":{"start":{"line":52,"column":14},"end":{"line":52,"column":27}}}) : helper))) != null ? stack1 : "")
     + "',\n";
 },"29":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6506,8 +6506,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	maxItems: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"maxItems") || container.strict(depth0, "maxItems", {"start":{"line":45,"column":14},"end":{"line":45,"column":22}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maxItems","hash":{},"data":data,"loc":{"start":{"line":45,"column":11},"end":{"line":45,"column":25}}}) : helper))) != null ? stack1 : "")
+  return "    maxItems:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"maxItems") || container.strict(depth0, "maxItems", {"start":{"line":56,"column":7},"end":{"line":56,"column":15}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maxItems","hash":{},"data":data,"loc":{"start":{"line":56,"column":4},"end":{"line":56,"column":18}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"31":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6517,8 +6517,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	minItems: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"minItems") || container.strict(depth0, "minItems", {"start":{"line":48,"column":14},"end":{"line":48,"column":22}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minItems","hash":{},"data":data,"loc":{"start":{"line":48,"column":11},"end":{"line":48,"column":25}}}) : helper))) != null ? stack1 : "")
+  return "    minItems:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"minItems") || container.strict(depth0, "minItems", {"start":{"line":60,"column":7},"end":{"line":60,"column":15}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minItems","hash":{},"data":data,"loc":{"start":{"line":60,"column":4},"end":{"line":60,"column":18}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"33":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6528,8 +6528,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	uniqueItems: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"uniqueItems") || container.strict(depth0, "uniqueItems", {"start":{"line":51,"column":17},"end":{"line":51,"column":28}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"uniqueItems","hash":{},"data":data,"loc":{"start":{"line":51,"column":14},"end":{"line":51,"column":31}}}) : helper))) != null ? stack1 : "")
+  return "    uniqueItems:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"uniqueItems") || container.strict(depth0, "uniqueItems", {"start":{"line":64,"column":7},"end":{"line":64,"column":18}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"uniqueItems","hash":{},"data":data,"loc":{"start":{"line":64,"column":4},"end":{"line":64,"column":21}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"35":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6539,8 +6539,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	maxProperties: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"maxProperties") || container.strict(depth0, "maxProperties", {"start":{"line":54,"column":19},"end":{"line":54,"column":32}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maxProperties","hash":{},"data":data,"loc":{"start":{"line":54,"column":16},"end":{"line":54,"column":35}}}) : helper))) != null ? stack1 : "")
+  return "    maxProperties:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"maxProperties") || container.strict(depth0, "maxProperties", {"start":{"line":68,"column":7},"end":{"line":68,"column":20}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"maxProperties","hash":{},"data":data,"loc":{"start":{"line":68,"column":4},"end":{"line":68,"column":23}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"37":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6550,8 +6550,8 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
         return undefined
     };
 
-  return "	minProperties: "
-    + ((stack1 = (((helper = lookupProperty(helpers,"minProperties") || container.strict(depth0, "minProperties", {"start":{"line":57,"column":19},"end":{"line":57,"column":32}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minProperties","hash":{},"data":data,"loc":{"start":{"line":57,"column":16},"end":{"line":57,"column":35}}}) : helper))) != null ? stack1 : "")
+  return "    minProperties:\n    "
+    + ((stack1 = (((helper = lookupProperty(helpers,"minProperties") || container.strict(depth0, "minProperties", {"start":{"line":72,"column":7},"end":{"line":72,"column":20}} ))),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"minProperties","hash":{},"data":data,"loc":{"start":{"line":72,"column":4},"end":{"line":72,"column":23}}}) : helper))) != null ? stack1 : "")
     + ",\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -6564,23 +6564,23 @@ var partialSchemaGeneric = {"1":function(container,depth0,helpers,partials,data)
   return "{\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"type"),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":0},"end":{"line":4,"column":7}}})) != null ? stack1 : "")
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"description"),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":5,"column":0},"end":{"line":7,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isReadOnly"),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":0},"end":{"line":10,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isRequired"),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":11,"column":0},"end":{"line":13,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isNullable"),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":14,"column":0},"end":{"line":16,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"format"),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":17,"column":0},"end":{"line":19,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maximum"),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":20,"column":0},"end":{"line":22,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"exclusiveMaximum"),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":23,"column":0},"end":{"line":25,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minimum"),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":26,"column":0},"end":{"line":28,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"exclusiveMinimum"),{"name":"if","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":29,"column":0},"end":{"line":31,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"multipleOf"),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":32,"column":0},"end":{"line":34,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maxLength"),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":35,"column":0},"end":{"line":37,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minLength"),{"name":"if","hash":{},"fn":container.program(25, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":38,"column":0},"end":{"line":40,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"pattern"),{"name":"if","hash":{},"fn":container.program(27, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":41,"column":0},"end":{"line":43,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maxItems"),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":44,"column":0},"end":{"line":46,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minItems"),{"name":"if","hash":{},"fn":container.program(31, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":47,"column":0},"end":{"line":49,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"uniqueItems"),{"name":"if","hash":{},"fn":container.program(33, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":50,"column":0},"end":{"line":52,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maxProperties"),{"name":"if","hash":{},"fn":container.program(35, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":53,"column":0},"end":{"line":55,"column":7}}})) != null ? stack1 : "")
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minProperties"),{"name":"if","hash":{},"fn":container.program(37, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":56,"column":0},"end":{"line":58,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isReadOnly"),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":0},"end":{"line":11,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isRequired"),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":12,"column":0},"end":{"line":15,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"isNullable"),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":16,"column":0},"end":{"line":19,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"format"),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":20,"column":0},"end":{"line":22,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maximum"),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":23,"column":0},"end":{"line":26,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"exclusiveMaximum"),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":27,"column":0},"end":{"line":30,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minimum"),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":31,"column":0},"end":{"line":34,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"exclusiveMinimum"),{"name":"if","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":35,"column":0},"end":{"line":38,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"multipleOf"),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":39,"column":0},"end":{"line":42,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maxLength"),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":43,"column":0},"end":{"line":46,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minLength"),{"name":"if","hash":{},"fn":container.program(25, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":47,"column":0},"end":{"line":50,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"pattern"),{"name":"if","hash":{},"fn":container.program(27, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":51,"column":0},"end":{"line":53,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maxItems"),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":54,"column":0},"end":{"line":57,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minItems"),{"name":"if","hash":{},"fn":container.program(31, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":58,"column":0},"end":{"line":61,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"uniqueItems"),{"name":"if","hash":{},"fn":container.program(33, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":62,"column":0},"end":{"line":65,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"maxProperties"),{"name":"if","hash":{},"fn":container.program(35, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":66,"column":0},"end":{"line":69,"column":7}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"minProperties"),{"name":"if","hash":{},"fn":container.program(37, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":70,"column":0},"end":{"line":73,"column":7}}})) != null ? stack1 : "")
     + "}";
 },"useData":true};
 
@@ -7064,15 +7064,15 @@ const registerHandlebarHelpers = (root) => {
     });
     runtime.registerHelper('if_eq', function (a, options) {
         let string = a;
-        if (string.includes("Request"))
+        if (string.includes('Request'))
             return options.fn(this);
         else
             return options.inverse(this);
     });
     runtime.registerHelper('deleteUserId', function (options) {
         let string = options.fn(this);
-        let re = new RegExp("userId: string,", 'g');
-        return string.replace(re, "");
+        let re = new RegExp('userId: string,', 'g');
+        return string.replace(re, '');
     });
     runtime.registerHelper('capitalizeFirst', function (a, options) {
         return a.charAt(0).toUpperCase() + a.slice(1);

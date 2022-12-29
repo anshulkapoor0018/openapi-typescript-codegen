@@ -19,6 +19,6 @@ export const buildAngularProject = (dir: string, name: string, output: string) =
         {
             cwd: resolvePath(cwd),
             stdio: 'inherit',
-        }
+        },
     );
 };

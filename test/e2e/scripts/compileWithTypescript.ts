@@ -39,7 +39,7 @@ export const compileWithTypescript = (dir: string) => {
         sys,
         resolve(process.cwd(), cwd),
         undefined,
-        'tsconfig.json'
+        'tsconfig.json',
     );
     const compilerHost = createCompilerHost(configFileResult.options);
     const compiler = createProgram(configFileResult.fileNames, configFileResult.options, compilerHost);

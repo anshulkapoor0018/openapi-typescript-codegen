@@ -27,8 +27,8 @@ describe('getRef', () => {
                 },
                 {
                     $ref: '#/components/schemas/Example',
-                }
-            )
+                },
+            ),
         ).toEqual({
             description: 'This is an Example model ',
             type: 'integer',
@@ -52,8 +52,8 @@ describe('getRef', () => {
                 },
                 {
                     $ref: '#/paths/~1api~1user~1%7Bid%7D',
-                }
-            )
+                },
+            ),
         ).toEqual({
             description: 'This is an Example path',
         });

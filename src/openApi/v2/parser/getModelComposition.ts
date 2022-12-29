@@ -14,7 +14,7 @@ export const getModelComposition = (
     definition: OpenApiSchema,
     definitions: OpenApiSchema[],
     type: 'one-of' | 'any-of' | 'all-of',
-    getModel: GetModelFn
+    getModel: GetModelFn,
 ): ModelComposition => {
     const composition: ModelComposition = {
         type,
@@ -45,7 +45,7 @@ export const getModelComposition = (
             openApi,
             definition.required,
             definitions,
-            getModel
+            getModel,
         );
         requiredProperties.forEach(requiredProperty => {
             composition.imports.push(...requiredProperty.imports);

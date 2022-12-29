@@ -69,7 +69,7 @@ describe('v3.fetch', () => {
                 'valuePath',
                 {
                     prop: 'valueBody',
-                }
+                },
             );
         });
         expect(result).toBeDefined();
@@ -122,7 +122,7 @@ describe('v3.fetch', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -155,7 +155,7 @@ describe('v3.fetch', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 

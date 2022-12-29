@@ -63,7 +63,7 @@ describe('client.axios', () => {
             'valuePath',
             {
                 prop: 'valueBody',
-            }
+            },
         );
         expect(result).toBeDefined();
     });
@@ -112,7 +112,7 @@ describe('client.axios', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -144,7 +144,7 @@ describe('client.axios', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 });

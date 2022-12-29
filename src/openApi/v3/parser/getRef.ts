@@ -18,7 +18,7 @@ export const getRef = <T>(openApi: OpenApi, item: T & OpenApiReference): T => {
         let result: any = openApi;
         paths.forEach(path => {
             const decodedPath = decodeURIComponent(
-                path.replace(ESCAPED_REF_SLASH, '/').replace(ESCAPED_REF_TILDE, '~')
+                path.replace(ESCAPED_REF_SLASH, '/').replace(ESCAPED_REF_TILDE, '~'),
             );
             if (result.hasOwnProperty(decodedPath)) {
                 result = result[decodedPath];

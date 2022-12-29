@@ -30,7 +30,7 @@ export const writeClientServices = async (
     useOptions: boolean,
     indent: Indent,
     postfix: string,
-    clientName?: string
+    clientName?: string,
 ): Promise<void> => {
     for (const service of services) {
         const file = resolve(outputPath, `${service.name}${postfix}.ts`);

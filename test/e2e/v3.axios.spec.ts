@@ -57,7 +57,7 @@ describe('v3.axios', () => {
             'valuePath',
             {
                 prop: 'valueBody',
-            }
+            },
         );
         expect(result).toBeDefined();
     });
@@ -104,7 +104,7 @@ describe('v3.axios', () => {
                     status: 500,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 
@@ -135,7 +135,7 @@ describe('v3.axios', () => {
                     status: 409,
                     message: 'hello world',
                 },
-            })
+            }),
         );
     });
 

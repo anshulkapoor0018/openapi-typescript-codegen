@@ -35,7 +35,7 @@ export const createAngularProject = (dir: string, name: string) => {
         {
             cwd: resolvePath(cwd),
             stdio: 'inherit',
-        }
+        },
     );
     rmSync(`${cwd}/${name}/src/app/`, {
         recursive: true,
